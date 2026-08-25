@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper-50 text-ink-800 font-ui antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern', 'liga', 'calt';
+  }
+
+  ::selection {
+    @apply bg-sage-200 text-ink-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-200 rounded-full border-2 border-paper-50;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .editor-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+}
+
+/* Markdown rendered prose */
+.prose-academic {
+  @apply text-ink-700 leading-[1.75];
+  font-size: 1.0625rem;
+}
+.prose-academic h1 {
+  @apply font-display text-4xl text-ink-900 mb-4 leading-tight;
+}
+.prose-academic h2 {
+  @apply font-display text-2xl text-ink-900 mt-8 mb-3;
+}
+.prose-academic h3 {
+  @apply font-ui font-semibold text-lg text-ink-800 mt-6 mb-2;
+}
+.prose-academic p {
+  @apply my-4;
+}
+.prose-academic blockquote {
+  @apply border-l-2 border-accent-amber/50 pl-5 my-5 italic text-ink-600 font-display text-xl;
+}
+.prose-academic a {
+  @apply text-slate-deep underline decoration-ink-200 underline-offset-2 hover:decoration-slate-deep;
+}
+.prose-academic code {
+  @apply font-mono text-[0.85em] bg-paper-200 px-1.5 py-0.5 rounded text-ink-700;
+}
+.prose-academic pre {
+  @apply font-mono text-sm bg-ink-900 text-paper-100 p-4 rounded-lg overflow-x-auto my-5;
+}
+.prose-academic pre code {
+  @apply bg-transparent p-0 text-paper-100;
+}
+.prose-academic ol, .prose-academic ul {
+  @apply my-4 ml-6;
+}
+.prose-academic ol { @apply list-decimal; }
+.prose-academic ul { @apply list-disc; }
+.prose-academic li { @apply my-1; }
+.prose-academic .footnote-ref {
+  @apply text-slate-deep text-xs align-super cursor-pointer hover:underline;
+}
+.prose-academic sup {
+  @apply text-slate-deep;
+}
+.prose-academic .citation-marker {
+  @apply text-slate-deep text-xs font-mono align-super cursor-pointer hover:underline;
+}
+.prose-academic hr {
+  @apply border-paper-300 my-8;
+}
+
+/* Markdown raw syntax highlighting in editor */
+.md-syntax .md-hash { color: #b8893a; }
+.md-syntax .md-bullet { color: #6f8a6f; }
+.md-syntax .md-bracket { color: #3a4a63; }
+.md-syntax .md-link { color: #6b7d99; text-decoration: underline; text-decoration-style: dotted; }
+.md-syntax .md-quote { color: #a2533a; }
+.md-syntax .md-code { color: #8a8166; }
+.md-syntax .md-footnote { color: #4f6f4f; }
+.md-syntax .md-bold { font-weight: 600; }
