@@ -1,6 +1,6 @@
 import { useReveal } from '../hooks/useReveal';
 import { journalEntries } from '../data';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 const TAG_STYLES: Record<string, string> = {
   Essay: 'text-slate-deep border-slate-blue/30 bg-slate-blue/5',
